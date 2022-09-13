@@ -23,12 +23,12 @@ public class Model {
 	private List<Album> best;
 	
 	public Model() {
-		this.graph = new SimpleDirectedWeightedGraph<Album, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		this.dao = new ItunesDAO();
 //		this.idMap = new HashMap<>(this.dao.getAllAlbums());
 	}
 	
 	public void creaGrafo(int n) {
+		this.graph = new SimpleDirectedWeightedGraph<Album, DefaultWeightedEdge>(DefaultWeightedEdge.class);
 		Graphs.addAllVertices(this.graph, this.dao.getVertex(n));
 		
 		for(Album a1: this.graph.vertexSet()) {
